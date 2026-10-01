@@ -1,6 +1,6 @@
 # Pailebot threat-list releases
 
-This public repository distributes Pailebot's signed threat-list updates. It is a delivery mirror, not the publisher's source code or an API for classifying browsing activity. No user accounts, browsing URLs, cookies, or telemetry are collected here.
+This public repository distributes Pailebot's signed threat-list updates. It is a delivery mirror, not the publisher's source code or an API for classifying browsing activity. Pailebot does not collect browsing URLs or telemetry through these release files. GitHub operates this mirror under its own policies.
 
 There are no releases yet. Until the first signed release passes source-rights and deployment review, do not treat any file in this repository as a current threat list.
 
