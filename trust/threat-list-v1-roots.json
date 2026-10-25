@@ -1,0 +1,16 @@
+{
+  "schema": "pailebot-threat-client-trust-roots-v1",
+  "purpose": "ThreatListManifest",
+  "signature_algorithm": "Ed25519",
+  "sequence_encoding": "unsigned decimal strings; inclusive bounds",
+  "roots": [
+    {
+      "role": "active",
+      "public_key_hex": "8c9efcf0d50babd63d2aaaf03fbcdb3d08aacccaaef511997bcd213fd4d560de",
+      "first_sequence": "1",
+      "last_sequence": "9223372036854775807"
+    }
+  ],
+  "recovery_status": "not_provisioned"
+}
+
