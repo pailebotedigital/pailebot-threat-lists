@@ -43,22 +43,24 @@ under tag `head-364ed82984e1fd7b4276fed3d6e96b227371d59cbd6e2347afc5195cce8d1f09
 Earlier public monitors authenticated sequence 36 on Cloudflare, GitHub and
 Bunny. These are snapshots, not permanent trust configuration.
 
-GitHub also listed a full-package asset with SHA-256
-`cafea15a21b3acef37ddf7b1450b467cd91b4a649b2a37d63b1a10ac99eedf17`
-and 27,669,757 wire bytes. **The current signed manifest's reference to that
-asset, a fresh download hash, and frozen-V1 runtime package validation were
-not independently completed.** VPS SSH timed out during follow-up. A GitHub
-asset listing alone is not authentication.
+At 2026-10-25T20:53:36Z, a fresh read-only probe authenticated all three
+public `latest.psc` objects under the active root at sequence 36; each was
+1,074 bytes with the exact SHA-256 above. The verified signed payload hash
+matched exact `manifest.payload` bytes. Its frozen-V1 manifest referenced
+`threat-lists/v1/full/cafea15a21b3acef37ddf7b1450b467cd91b4a649b2a37d63b1a10ac99eedf17.tar.br`
+with 27,669,757 wire bytes and 86,844,416 decoded bytes. Fresh Cloudflare,
+GitHub and Bunny downloads each matched the descriptor's exact wire size and
+SHA-256. The pinned Rust helper validated the signed channel and Cloudflare's
+full package under the frozen V1 contract; the other two mirrors served
+byte-identical full packages. No mirror was unavailable in this probe.
 
 ## Remaining gates
 
 1. Map only the approved active root and inclusive window into the Apple
    build's static trust configuration. Keep recovery unset.
-2. Bind exact `manifest.payload` bytes to the signed payload hash, parse its
-   full descriptor, re-download the referenced full package, check exact size
-   and hash, and run the pinned Rust frozen-V1 package validator.
-3. Qualify expiry, rollback, mirror failure, stale-list warning and clean-install
-   activation in the client before claiming release readiness.
+2. Qualify expiry, rollback, mirror failure, stale-list warning and clean-install
+   activation in the client before claiming release readiness. A later release
+   needs its own fresh manifest/package verification.
 
 The frozen transport and archive contract is
 [backend threat-list V1 protocol](https://github.com/pailebotedigital/pailebot-backend/blob/153621e09be4763bb885af0fd503ec1459dad191/docs/threat-list-v1-protocol.md).
