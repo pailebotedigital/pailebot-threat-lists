@@ -2,7 +2,7 @@
 
 This public repository distributes Pailebot's signed threat-list updates. It is a delivery mirror, not the publisher's source code or an API for classifying browsing activity. Pailebot does not collect browsing URLs or telemetry through these release files. GitHub operates this mirror under its own policies.
 
-There are no releases yet. Until the first signed release passes source-rights and deployment review, do not treat any file in this repository as a current threat list.
+Signed index-only V1 releases are available. This repository is a delivery mirror, not a root of trust. The [versioned public-root handoff](trust/threat-list-v1-roots.json) and [time-qualified verification record](trust/verification-2026-10-25.md) are non-secret review aids; clients must pin approved roots at build time after independent review, never fetch trust roots from this repository or from `latest.psc` at runtime. An independent recovery root is not yet provisioned.
 
 ## Release files
 
